@@ -22,6 +22,7 @@
 		<EnableBochsDebug>False</EnableBochsDebug>
 		<StartBochsDebugGui>True</StartBochsDebugGui>
 		<RemoveBootDebugOutput>True</RemoveBootDebugOutput>
+		<DebugEnabled>False</DebugEnabled>
 	</PropertyGroup>
 
 	<ItemGroup>
