@@ -87,6 +87,7 @@ namespace CosmosKernel4
                         Console.Clear();
                         break;
                     case "text editor":
+                        //rewrote this into it's own class since this is not working out well
                         Console.Clear();
                         while (true)
                         {
@@ -94,6 +95,7 @@ namespace CosmosKernel4
                             Console.WriteLine("[create file]");
                             Console.WriteLine("[read file]");
                             Console.WriteLine("[delete file]");
+                            Console.WriteLine("[list files]");
                             Console.WriteLine("[quit]");
                             Console.Write(">");
                             var inputt = Console.ReadLine();
@@ -114,7 +116,7 @@ namespace CosmosKernel4
                                     Console.ReadKey();
                                     Console.Clear();
                                     break;
-                                case "print directory":
+                                case "list files":
                                     Console.WriteLine(fs.GetDirectoryListing(aPath: "0:\\document"));
                                     break;
                             }
