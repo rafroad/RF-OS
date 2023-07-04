@@ -1,36 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Raf\\source\\repos\\CosmosKernel4\\CosmosKernel4\\CosmosKernel4.csproj": {}
+    "G:\\Coding\\C#\\RF-OS\\CosmosKernel4\\CosmosKernel4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Raf\\source\\repos\\CosmosKernel4\\CosmosKernel4\\CosmosKernel4.csproj": {
+    "G:\\Coding\\C#\\RF-OS\\CosmosKernel4\\CosmosKernel4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raf\\source\\repos\\CosmosKernel4\\CosmosKernel4\\CosmosKernel4.csproj",
+        "projectUniqueName": "G:\\Coding\\C#\\RF-OS\\CosmosKernel4\\CosmosKernel4.csproj",
         "projectName": "CosmosKernel4",
-        "projectPath": "C:\\Users\\Raf\\source\\repos\\CosmosKernel4\\CosmosKernel4\\CosmosKernel4.csproj",
-        "packagesPath": "C:\\Users\\Raf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raf\\source\\repos\\CosmosKernel4\\CosmosKernel4\\obj\\",
+        "projectPath": "G:\\Coding\\C#\\RF-OS\\CosmosKernel4\\CosmosKernel4.csproj",
+        "packagesPath": "C:\\Users\\backup 1\\.nuget\\packages\\",
+        "outputPath": "G:\\Coding\\C#\\RF-OS\\CosmosKernel4\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Raf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\backup 1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\Raf\\AppData\\Roaming\\Cosmos User Kit\\packages\\": {},
+          "C:\\Users\\backup 1\\AppData\\Roaming\\Cosmos User Kit\\packages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.0": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -41,7 +38,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.0": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Cosmos.Build": {
               "target": "Package",
@@ -63,12 +61,6 @@
               "noWarn": [
                 "NU1604"
               ]
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.9, )",
-              "autoReferenced": true
             }
           },
           "imports": [
@@ -77,16 +69,17 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "cosmos": {
-          "#import": []
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -6,3 +6,5 @@ C:\Users\Raf\source\repos\CosmosKernel4\CosmosKernel4\obj\Debug\netcoreapp2.0\co
 C:\Users\Raf\source\repos\CosmosKernel4\CosmosKernel4\obj\Debug\netcoreapp2.0\cosmos\CosmosKernel4.AssemblyInfo.cs
 C:\Users\Raf\source\repos\CosmosKernel4\CosmosKernel4\obj\Debug\netcoreapp2.0\cosmos\CosmosKernel4.dll
 C:\Users\Raf\source\repos\CosmosKernel4\CosmosKernel4\obj\Debug\netcoreapp2.0\cosmos\CosmosKernel4.pdb
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\netcoreapp2.0\cosmos\CosmosKernel4.dll
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\netcoreapp2.0\cosmos\CosmosKernel4.pdb

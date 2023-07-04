@@ -1,0 +1,12 @@
+G:\Coding\C#\RF-OS\CosmosKernel4\bin\Debug\net6.0\CosmosKernel4.deps.json
+G:\Coding\C#\RF-OS\CosmosKernel4\bin\Debug\net6.0\CosmosKernel4.dll
+G:\Coding\C#\RF-OS\CosmosKernel4\bin\Debug\net6.0\CosmosKernel4.pdb
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\CosmosKernel4.csproj.AssemblyReference.cache
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\CosmosKernel4.GeneratedMSBuildEditorConfig.editorconfig
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\CosmosKernel4.AssemblyInfoInputs.cache
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\CosmosKernel4.AssemblyInfo.cs
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\CosmosKernel4.csproj.CoreCompileInputs.cache
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\CosmosKernel4.dll
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\refint\CosmosKernel4.dll
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\CosmosKernel4.pdb
+G:\Coding\C#\RF-OS\CosmosKernel4\obj\Debug\net6.0\ref\CosmosKernel4.dll
