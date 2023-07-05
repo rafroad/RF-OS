@@ -6,52 +6,36 @@ using Sys = Cosmos.System;
 using System.Runtime.InteropServices;
 using Cosmos.System.FileSystem;
 using CosmosKernel4;
+using System.ComponentModel.Design.Serialization;
+
 namespace CosmosKernel4
 {
     public class Kernel_main : Sys.Kernel
     {
+        public string root = @"0:\";
+        fs fs = new fs();
+        proccess pr = new proccess();
         misc_func misc_func = new misc_func();
-        Sys.FileSystem.CosmosVFS fs;
-        string current_directory = "0:\\";
         public List<Disk> Disks { get; }
         public void entry1()
         {
             Run();
         }
-        public void entry2()
-        {
-            //this causes the entire os to freeze for some reason i'll figure it out tmrw
-            //debug
-            Console.Clear();
-            Console.WriteLine("debug mode");
-            //Console.WriteLine(fs.GetTotalFreeSpace(aDriveId: current_directory));
-            //Console.WriteLine(fs.GetFileSystemType(current_directory));
-            //Console.WriteLine(fs.GetDirectoryListing(aPath: "0:\\"));
-            Console.WriteLine(Disks.Count-1);
-            Console.WriteLine("press any key to return login screen");
-            Console.ReadKey();
-            misc_func.login_func();
-        }
         protected override void BeforeRun()
         {
-        //filesystem
-        A:
-            var fs = new Sys.FileSystem.CosmosVFS();
-            Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs);
-            fs.Initialize(aShowInfo: false);
-            fs.CreateDirectory("0:\\PROGRAM");
-            fs.CreateDirectory("0:\\OS");
-            fs.CreateDirectory("0:\\document");
-
             //text color
             var textscr = Cosmos.HAL.Global.TextScreen;
             Cosmos.System.Global.Console = new Cosmos.System.Console(textscr);
             Cosmos.HAL.Global.TextScreen = textscr;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
+            //filesystem
+            fs.startfs();
+            //load login screen
             misc_func.login_func();
+
         }
-         
+
 
         protected override void Run()
         {
@@ -59,15 +43,14 @@ namespace CosmosKernel4
             while (true)
             {
                 var A = "user";
-                Console.WriteLine("RF OS V 1.1 TERMLINK");
-                Console.WriteLine("WELCOME " + A);
-                Console.WriteLine("[text editor]");
-                Console.WriteLine("[copyright notice]");
-                Console.WriteLine("[calculator]");
-                Console.WriteLine("[RF INDUSTRIES STOCK FELL]");
-                Console.WriteLine("[logout]");
-                Console.WriteLine("[reboot]");
-                Console.WriteLine("[shutdown]");
+                pr.drawtitle("RF OS V 1.1 TERMLINK", $"WELCOME {A}");
+                pr.drawoption("text editor");
+                pr.drawoption("copyright notice");
+                pr.drawoption("calculator");
+                pr.drawoption("RF INDUSTRIES STOCK FELL");
+                pr.drawoption("logout");
+                pr.drawoption("reboot");
+                pr.drawoption("shutdown");
                 Console.Write(">");
                 var input = Console.ReadLine();
                 switch (input)
@@ -117,7 +100,7 @@ namespace CosmosKernel4
                                     Console.Clear();
                                     break;
                                 case "list files":
-                                    Console.WriteLine(fs.GetDirectoryListing(aPath: "0:\\document"));
+                                    //Console.WriteLine(vfs.GetDirectoryListing(aPath: $"{root}document"));
                                     break;
                             }
                         }
@@ -172,12 +155,14 @@ namespace CosmosKernel4
     }
     public class misc_func
     {
+        proccess pr = new proccess();
+
         public void login_func()
         {
             Kernel_main Kernel_main = new Kernel_main();
             Console.Clear();
-            Console.WriteLine("RF OS V 1.1 TERMLINK");
-            Console.WriteLine("[SHUTDOWN]");
+            pr.drawtitle("RF OS V 1.1 TERMLINK",null);
+            pr.drawoption("SHUTDOWN");
             Console.Write("login user password:");
             const string password = "admin";
             string inputp = Console.ReadLine();
@@ -188,7 +173,7 @@ namespace CosmosKernel4
                     Kernel_main.entry1();
                     break;
                 case "rundebugmode":
-                    Kernel_main.entry2();
+                    debugmode();
                     break;
                 case "shutdown":
                     Cosmos.Core.ACPI.Shutdown();
@@ -200,6 +185,22 @@ namespace CosmosKernel4
                     Console.Clear();
                     login_func();
                     break;
+            }
+            void debugmode()
+            {
+                fs fs = new fs();
+                proccess pr = new proccess();
+                //this causes the entire os to freeze for some reason i'll figure it out tmrw
+                //debug
+                Console.Clear();
+                Console.WriteLine("debug mode");
+                //Console.WriteLine(fs.GetTotalFreeSpace(aDriveId: current_directory));
+                //Console.WriteLine(fs.GetFileSystemType(current_directory));
+                //Console.WriteLine(fs.GetDirectoryListing(aPath: "0:\\"));
+                //Console.WriteLine(Kernel_main.vfs.Disks.Count - 1);
+                Console.WriteLine("press any key to return login screen");
+                Console.ReadKey();
+                login_func();
             }
         }
     }
