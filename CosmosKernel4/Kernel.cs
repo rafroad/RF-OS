@@ -5,7 +5,7 @@ using System.IO;
 using Sys = Cosmos.System;
 using System.Runtime.InteropServices;
 using Cosmos.System.FileSystem;
-
+using CosmosKernel4;
 namespace CosmosKernel4
 {
     public class Kernel_main : Sys.Kernel
@@ -24,10 +24,10 @@ namespace CosmosKernel4
             //debug
             Console.Clear();
             Console.WriteLine("debug mode");
-            Console.WriteLine(fs.GetTotalFreeSpace(aDriveId: current_directory));
-            Console.WriteLine(fs.GetFileSystemType(current_directory));
-            Console.WriteLine(fs.GetDirectoryListing(aPath: "0:\\"));
-            Console.WriteLine(Disks);
+            //Console.WriteLine(fs.GetTotalFreeSpace(aDriveId: current_directory));
+            //Console.WriteLine(fs.GetFileSystemType(current_directory));
+            //Console.WriteLine(fs.GetDirectoryListing(aPath: "0:\\"));
+            Console.WriteLine(Disks.Count-1);
             Console.WriteLine("press any key to return login screen");
             Console.ReadKey();
             misc_func.login_func();
@@ -78,7 +78,7 @@ namespace CosmosKernel4
                         Console.Clear();
                         break;
                     case "shutdown":
-                        Sys.Power.Shutdown();
+                        Cosmos.Core.ACPI.Shutdown();
                         break;
                     case "copyright notice":
                         Console.Clear();
@@ -191,7 +191,7 @@ namespace CosmosKernel4
                     Kernel_main.entry2();
                     break;
                 case "shutdown":
-                    Sys.Power.Shutdown();
+                    Cosmos.Core.ACPI.Shutdown();
                     break;
                 default:
                     Console.WriteLine("ENTRY DENIED TRY AGAIN");
