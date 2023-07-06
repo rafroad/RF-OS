@@ -23,12 +23,14 @@
 		<StartBochsDebugGui>True</StartBochsDebugGui>
 		<RemoveBootDebugOutput>True</RemoveBootDebugOutput>
 		<DebugEnabled>False</DebugEnabled>
-		<QemuMemory>4096</QemuMemory>
+		<QemuMemory>1024</QemuMemory>
 		<QemuUSBKeyboard>True</QemuUSBKeyboard>
 		<QemuUseCustomLocation>True</QemuUseCustomLocation>
 		<QemuAudioDriver>SoundBlaster16</QemuAudioDriver>
 		<QemuVideoDriver>VMWare</QemuVideoDriver>
 		<QemuLocationParameters>G:\program\qemu\qemu-system-i386.exe</QemuLocationParameters>
+		<QemuUseSerial>False</QemuUseSerial>
+		<QemuUseCustomParameters>True</QemuUseCustomParameters>
 	</PropertyGroup>
 
 	<ItemGroup>
