@@ -20,8 +20,6 @@ namespace CosmosKernel4
             {
                 Console.WriteLine($"[{text[i].ToString()}]");
             }
-            //string drawedtext = $"[{text}]";
-            //Console.WriteLine(drawedtext);
         }
         public void criterror()
         {
