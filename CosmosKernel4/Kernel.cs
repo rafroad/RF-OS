@@ -64,7 +64,7 @@ namespace CosmosKernel4
                         Console.Clear();
                         break;
                     case "shutdown":
-                        Cosmos.Core.ACPI.Shutdown();
+                        Cosmos.Core.CPU.Halt();
                         break;
                     case "copyright notice":
                         Console.Clear();
@@ -154,7 +154,7 @@ namespace CosmosKernel4
                     debugmode();
                     break;
                 case "shutdown":
-                    Cosmos.Core.ACPI.Shutdown();
+                    Cosmos.Core.CPU.Halt();
                     break;
                 default:
                     Console.WriteLine("ENTRY DENIED TRY AGAIN");
