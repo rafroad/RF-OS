@@ -115,13 +115,6 @@ namespace CosmosKernel4
 
                 }
             }
-            object readlines(String fileadr)
-            {
-                string fileread = "";
-                fileread = File.ReadAllText("0:\\document\\" + fileread);
-                return fileread;
-            }
-
         }
     }
     public class misc_func
