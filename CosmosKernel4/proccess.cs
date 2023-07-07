@@ -14,6 +14,7 @@ namespace CosmosKernel4
 {
     internal class proccess
     {
+        Kernel_main kernel_Main = new Kernel_main();
         public void drawmultoption(List<string> text)
         {
             for(int i = 0; i < text.Count; i++)
@@ -65,6 +66,27 @@ namespace CosmosKernel4
         {
             string drawedtext = $"[{text}]";
             Console.WriteLine(drawedtext);
+        }
+        public void drawtextlist(List<string> list)
+        {
+            for(int i = 0; i < list.Count; i++)
+            {
+                try
+                {
+                    drawtext(list[i].ToString());
+                }
+                catch(Exception e)
+                {
+                    milderror(e.ToString());
+                }
+            }
+        }
+        public void milderror(string exc)
+        {
+            drawtext($"an error has occured: {exc}");
+            drawtext("press any key to exit the application");
+            Console.ReadLine();
+            kernel_Main.entry1();
         }
     }
 }

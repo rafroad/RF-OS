@@ -13,12 +13,6 @@ namespace CosmosKernel4
 {
     public class Kernel_main : Sys.Kernel
     {
-        loginfunc loginfunc = new loginfunc();
-        public string root = @"0:\";
-        fs fs = new fs();
-        proccess pr = new proccess();
-        misc_func misc_func = new misc_func();
-        app app = new app();
         private static Sys.FileSystem.CosmosVFS vfs;
         public void entry1()
         {
@@ -26,7 +20,12 @@ namespace CosmosKernel4
         }
         protected override void BeforeRun()
         {
-            Kernel_main.PrintDebug("here");
+            app app = new app();
+            loginfunc loginfunc = new loginfunc();
+            string root = @"0:\";
+            fs fs = new fs();
+            proccess pr = new proccess();
+            misc_func misc_func = new misc_func();
             vfs = new Sys.FileSystem.CosmosVFS();
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(vfs);
             vfs.Initialize(aShowInfo: true);
@@ -45,6 +44,12 @@ namespace CosmosKernel4
 
         protected override void Run()
         {
+            loginfunc loginfunc = new loginfunc();
+            string root = @"0:\";
+            fs fs = new fs();
+            proccess pr = new proccess();
+            misc_func misc_func = new misc_func();
+            app app = new app();
             Console.Clear();
             while (true)
             {
