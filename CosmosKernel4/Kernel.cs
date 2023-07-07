@@ -20,10 +20,8 @@ namespace CosmosKernel4
         }
         protected override void BeforeRun()
         {
-            app app = new app();
             loginfunc loginfunc = new loginfunc();
             string root = @"0:\";
-            fs fs = new fs();
             proccess pr = new proccess();
             misc_func misc_func = new misc_func();
             vfs = new Sys.FileSystem.CosmosVFS();
@@ -45,10 +43,7 @@ namespace CosmosKernel4
         protected override void Run()
         {
             loginfunc loginfunc = new loginfunc();
-            string root = @"0:\";
-            fs fs = new fs();
             proccess pr = new proccess();
-            misc_func misc_func = new misc_func();
             app app = new app();
             Console.Clear();
             while (true)
@@ -78,28 +73,10 @@ namespace CosmosKernel4
                         Console.Clear();
                         break;
                     case "text editor":
-                        //rewrote this into it's own class since this is not working out well
                         app.text_editor();
                         break;
                     case "calculator":
-                        Console.Clear();
-                        Console.WriteLine("RF calculator v 1.0");
-                        Console.Write("please input first number:");
-                        var AA = Console.ReadLine();
-                        Console.Write("please input second number");
-                        var BB = Console.ReadLine();
-                        float AAA = float.Parse(AA);
-                        float BBB = float.Parse(BB);
-                        float D = AAA + BBB;
-                        float E = AAA - BBB;
-                        float F = AAA * BBB;
-                        float G = AAA / BBB;
-                        Console.WriteLine("addition:" + D);
-                        Console.WriteLine("subtraction:" + E);
-                        Console.WriteLine("multiplication:" + F);
-                        Console.WriteLine("division:" + G);
-                        Console.ReadKey();
-                        Console.Clear();
+                        app.calculator();
                         break;
                     case "RF INDUSTRIES STOCK FELL":
                         Console.Clear();
