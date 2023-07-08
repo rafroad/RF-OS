@@ -107,23 +107,17 @@ namespace CosmosKernel4
             {
                 Console.Write($"input {i+1} number out of {am} number: ");
                 string strnum = Console.ReadLine();
-                try
+                float flnum = float.Parse(strnum);
+                numarr.Insert(i, flnum);
+                pr.drawtext(numarr[i].ToString());
+            }
+            for (int a = 0; a < numarr.Count; a++)
+            {
+                float add = 0;
+                add = numarr[1] + add;
+                if (a == numarr.Count)
                 {
-                    float flnum=float.Parse(strnum);
-                    numarr.Insert(i,flnum);
-                }
-                catch(Exception e)
-                {
-                    pr.milderror(e.ToString());
-                }
-                for(int a=0; a<numarr.Count; a++)
-                {
-                    float add = 0;
-                    add = numarr[1] + add;
-                    if (a == numarr.Count)
-                    {
-                        pr.drawoption($"addition: {add}");
-                    }
+                    pr.drawoption($"addition: {add}");
                 }
             }
         }
