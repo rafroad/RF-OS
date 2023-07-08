@@ -119,32 +119,46 @@ namespace CosmosKernel4
         misc_func misc_Func = new misc_func();
         public void login_func()
         {
+            var userlist = new List<string>(); var passlist = new List<string>();
+            string[] user = { "user" }; string[] pass = { "admin" };
+            userlist.AddRange(user); passlist.AddRange(pass);
             Kernel_main Kernel_main = new Kernel_main();
             Console.Clear();
-            pr.drawtitle(null, "login page please enter password for user",true);
+            pr.drawtext("RF OS V 1.1 TERMLINK");
+            pr.drawtitle("LOGIN PAGE PLEASE ENTER USER ID AND PASSWORD", "USER LIST:", false);
+            pr.drawmultoption(userlist);
+            Console.WriteLine(Environment.NewLine);
+            pr.drawtext("OTHER OPTIONS");
+            pr.drawline(15);
+            Console.WriteLine(Environment.NewLine);
             pr.drawoption("SHUTDOWN");
+            pr.drawline(15);
+            Console.WriteLine(Environment.NewLine);
+            Console.Write(">: ");
+            string inputuser = Console.ReadLine();
+            int userid = int.Parse(inputuser) - 1;
             Console.Write("password: ");
-            const string password = "admin";
-            string inputp = Console.ReadLine();
-            switch (inputp)
+            string inputpass = Console.ReadLine();
+            if (inputpass == passlist[userid])
             {
-                case password:
-                    Console.Clear();
-                    Kernel_main.entry1();
-                    break;
-                case "rundebugmode":
-                    pr.debugmode();
-                    break;
-                case "shutdown":
-                    Cosmos.Core.CPU.Halt();
-                    break;
-                default:
-                    Console.WriteLine("ENTRY DENIED TRY AGAIN");
-                    Console.WriteLine("press any key to repeat");
-                    Console.ReadKey();
-                    Console.Clear();
-                    login_func();
-                    break;
+                Console.Clear();
+                Kernel_main.entry1();
+            }
+            else if (inputpass == "rundebugmode")
+            {
+                pr.debugmode();
+            }
+            else if (inputpass == "shutdown")
+            {
+                Cosmos.Core.CPU.Halt();
+            }
+            else
+            {
+                Console.WriteLine("ENTRY DENIED TRY AGAIN");
+                Console.WriteLine("press any key to repeat");
+                Console.ReadKey();
+                Console.Clear();
+                login_func();
             }
         }
     }

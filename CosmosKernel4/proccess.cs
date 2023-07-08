@@ -111,5 +111,12 @@ namespace CosmosKernel4
             //loginfunc.login_func();
             //debugmode();
         }
+        public void drawline(int am)
+        {
+            for (int i = 0; i < am; i++)
+            {
+                Console.Write("-");
+            }
+        }
     }
 }
