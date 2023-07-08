@@ -97,28 +97,56 @@ namespace CosmosKernel4
         }
         public void calc(int am)
         {
-            var numarr= new List<float>();
-            float[] empty = { 0 };
-            //dirty fix
-            IEnumerable<float> emptyenum = empty;
-            numarr.InsertRange(0,emptyenum);
+            var numarradd = new List<double>(new[] { 0D });
+            var numarrsub = new List<double>(new[] { 0D });
+            var numarrmul = new List<double>(new[] { 0D });
+            var numarrdiv = new List<double>(new[] { 0D });
+
             float[] num = { };
-            for(int i = 0; i < am; i++)
+            for (int i = 0; i < am; i++)
             {
-                Console.Write($"input {i+1} number out of {am} number: ");
-                string strnum = Console.ReadLine();
-                float flnum = float.Parse(strnum);
-                numarr.Insert(i, flnum);
-                pr.drawtext(numarr[i].ToString());
-            }
-            for (int a = 0; a < numarr.Count; a++)
-            {
-                float add = 0;
-                add = numarr[1] + add;
-                if (a == numarr.Count)
+                if (i < 1)
                 {
-                    pr.drawoption($"addition: {add}");
+                    numarradd.RemoveAt(0); numarrsub.RemoveAt(0); numarrmul.RemoveAt(0); numarrdiv.RemoveAt(0);
                 }
+                Console.Write($"input {i + 1} number out of {am} number: ");
+                string strnum = Console.ReadLine();
+                double flnum = double.Parse(strnum);
+                numarradd.Add(flnum); numarrsub.Add(flnum); numarrmul.Add(flnum); numarrdiv.Add(flnum);
+            }
+            double add = 0; double sub = 0; double mul = 1; double div = 1;
+            pr.drawtext("num in string");
+            for (int i = 0; i < numarradd.Count; i++)
+            {
+                add = numarradd[i] + add;
+            }
+            for (int i = 0; i < numarrsub.Count; i++)
+            {
+                sub = numarrsub[i] - sub;
+            }
+            for (int i = 0; i < numarrmul.Count; i++)
+            {
+                mul = numarrsub[i] * mul;
+            }
+            for (int i = 0; i < numarrdiv.Count; i++)
+            {
+                div = numarrsub[i] / div;
+            }
+            string[] resultarr = { "result", $"addition: {add}", $"subtraction: {sub}", $"multiplication: {mul}", $"division: {div}" };
+            var result = new List<string>(); result.AddRange(resultarr);
+            pr.drawmultext(result);
+            Console.Write("redo a calculation? [y/n]: ");
+            string confcalc = Console.ReadLine();
+            if(confcalc == "y")
+            {
+                app.calculator();
+            }
+            else
+            {
+                pr.drawtext("press any key to exit");
+                Console.ReadKey();
+                Console.Clear();
+                kernel.entry1();
             }
         }
     }

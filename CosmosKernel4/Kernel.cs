@@ -133,7 +133,7 @@ namespace CosmosKernel4
                     Kernel_main.entry1();
                     break;
                 case "rundebugmode":
-                    debugmode();
+                    pr.debugmode();
                     break;
                 case "shutdown":
                     Cosmos.Core.CPU.Halt();
@@ -146,19 +146,6 @@ namespace CosmosKernel4
                     login_func();
                     break;
             }
-        }
-        void debugmode()
-        {
-            fs fs = new fs();
-            proccess pr = new proccess();
-            //this causes the entire os to freeze for some reason i'll figure it out tmrw
-            //debug
-            Console.Clear();
-            pr.drawtitle(null, "debug mode", true);
-
-            Console.WriteLine("press any key to return login screen");
-            Console.ReadKey();
-            login_func();
         }
     }
 }

@@ -103,7 +103,7 @@ namespace CosmosKernel4
             proccess pr = new proccess();
             Kernel_main kernel = new Kernel_main();
             Console.Clear();
-            pr.drawtitle("RF calculator v 1.0",null,false);
+            pr.drawtitle("RF calculator v 1.1","WARNING DIVISION IS NOT ACCURATE YET ",false);
             Console.Write("input amount of number: ");
             string amstr=Console.ReadLine();
             try

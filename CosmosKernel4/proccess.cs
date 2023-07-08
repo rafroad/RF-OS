@@ -22,6 +22,13 @@ namespace CosmosKernel4
                 Console.WriteLine($"[{text[i].ToString()}]");
             }
         }
+        public void drawmultext(List<string> text)
+        {
+            for (int i = 0; i < text.Count; i++)
+            {
+                Console.WriteLine($"{text[i].ToString()}");
+            }
+        }
         public void criterror()
         {
             Console.Clear();
@@ -87,6 +94,22 @@ namespace CosmosKernel4
             drawtext("press any key to exit the application");
             Console.ReadLine();
             kernel_Main.entry1();
+        }
+        public void debugmode()
+        {
+            fs fs = new fs();
+            proccess pr = new proccess();
+            loginfunc loginfunc = new loginfunc();
+            app app = new app();
+            api api = new api();
+            //this causes the entire os to freeze for some reason i'll figure it out tmrw
+            //debug
+            //Console.Clear();
+            //pr.drawtitle(null, "debug mode", true);
+            //Console.WriteLine("press any key to return login screen");
+            //Console.ReadKey();
+            //loginfunc.login_func();
+            //debugmode();
         }
     }
 }
