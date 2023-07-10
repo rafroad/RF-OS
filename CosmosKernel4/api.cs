@@ -8,8 +8,7 @@ using Cosmos.HAL.BlockDevice;
 using Cosmos.System.FileSystem;
 using sys = Cosmos.System;
 using System.Windows.Input;
-
-
+using System.Diagnostics.CodeAnalysis;
 
 namespace CosmosKernel4
 {
@@ -147,6 +146,66 @@ namespace CosmosKernel4
                 Console.ReadKey();
                 Console.Clear();
                 kernel.entry1();
+            }
+        }
+        public void listfileman(string filedir)
+        {
+            try
+            {
+                var file_list = Directory.GetFiles($"{filedir}");
+                var dir_list=Directory.GetDirectories(filedir);
+                foreach (var file in file_list)
+                {
+                    pr.drawoption(file);
+                }
+                foreach(var dir in dir_list)
+                {
+                    pr.drawoption(dir);
+                }
+            }
+            catch (Exception e) { pr.milderror(e.ToString()); }
+        }
+        //blanked out do this later
+        public void checkfile(String file, string dir)
+        {
+            try
+            {
+                string fileread = "";
+                fileread = File.ReadAllText(dir+file);
+                pr.drawtext(fileread);
+            }
+            catch (Exception e)
+            {
+                pr.milderror(e.ToString());
+
+            }
+        }
+        public void gotodir(string dir)
+        {
+            app app = new app();
+            string root = @"0:\";
+            try
+            {
+                app.filemanager($"{root}"+dir);
+            }
+            catch (Exception e)
+            {
+                pr.milderror(e.ToString());
+
+            }
+        }
+        public void goupdir()
+        {
+            app app = new app();
+            string root = @"0:\";
+            try
+            {
+                app.filemanager($"{root}");
+            }
+            catch (Exception e)
+            {
+                pr.milderror(e.ToString());
+
             }
         }
     }

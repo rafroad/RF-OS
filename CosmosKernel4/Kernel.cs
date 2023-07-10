@@ -42,6 +42,7 @@ namespace CosmosKernel4
 
         protected override void Run()
         {
+            string root = @"0:\";
             loginfunc loginfunc = new loginfunc();
             proccess pr = new proccess();
             app app = new app();
@@ -51,7 +52,7 @@ namespace CosmosKernel4
                 var A = "user";
                 pr.drawtitle(null, $"WELCOME {A}",true);
                 var options_array = new List<string>();
-                string[] options= new string[] { "text editor", "copyright notice", "calculator" , "RF INDUSTRIES STOCK FELL", "logout", "reboot", "shutdown",};
+                string[] options= new string[] { "file manager","text editor", "copyright notice", "calculator" , "RF INDUSTRIES STOCK FELL", "logout", "reboot", "shutdown",};
                 options_array.AddRange(options);
                 pr.drawmultoption(options_array);
                 Console.Write(">");
@@ -94,7 +95,9 @@ namespace CosmosKernel4
                     case "logout":
                         loginfunc.login_func();
                         break;
-
+                    case "file manager":
+                        app.filemanager(root);
+                        break;
                 }
             }
         }
@@ -126,7 +129,10 @@ namespace CosmosKernel4
             Console.Clear();
             pr.drawtext("RF OS V 1.1 TERMLINK");
             pr.drawtitle("LOGIN PAGE PLEASE ENTER USER ID AND PASSWORD", "USER LIST:", false);
-            pr.drawmultoption(userlist);
+            for (int i = 0; i < userlist.Count; i++)
+            {
+                pr.drawoption($"{userlist[i]}");
+            }
             Console.WriteLine(Environment.NewLine);
             pr.drawtext("OTHER OPTIONS");
             pr.drawline(15);
@@ -136,7 +142,15 @@ namespace CosmosKernel4
             Console.WriteLine(Environment.NewLine);
             Console.Write(">: ");
             string inputuser = Console.ReadLine();
-            int userid = int.Parse(inputuser) - 1;
+            int userid = 0;
+            try
+            {
+                userid = int.Parse(inputuser) - 1;
+            }
+            catch (Exception e)
+            {
+                pr.criterror();
+            }
             Console.Write("password: ");
             string inputpass = Console.ReadLine();
             if (inputpass == passlist[userid])

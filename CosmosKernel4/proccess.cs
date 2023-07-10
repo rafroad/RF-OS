@@ -32,11 +32,11 @@ namespace CosmosKernel4
         public void criterror()
         {
             Console.Clear();
-            drawtitle(null, null, true);
+            drawtitle(null, "", true);
             drawtext("a critical error has occured please reboot the system or contact your system administrator");
             drawtext("press any key to reboot");
             Console.ReadKey();
-            sys.Power.Reboot();
+
         }
         public void drawtitle(string titletext, string descrtext, bool ismaintitle)
         {

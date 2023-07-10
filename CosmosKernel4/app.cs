@@ -132,5 +132,57 @@ namespace CosmosKernel4
             //Console.ReadKey();
             //Console.Clear();
         }
+        public void filemanager(string filedir)
+        {
+            while (true)
+            {
+                string root = @"0:\";
+                api api = new api();
+                fs fs = new fs();
+                proccess pr = new proccess();
+                Kernel_main kernel = new Kernel_main();
+                Console.Clear();
+                pr.drawtitle("RF FILE MANAGER 1.0 BETA", $"Root directory {root} NESTED FOLDER NOT SUPPORTED", false);
+                pr.drawtext($"FILE LIST AT {filedir}");
+                api.listfileman($"{filedir}");
+                Console.WriteLine(Environment.NewLine);
+                pr.drawtitle("please select options:", "gotodir: go to directory , goupdir: go up directory , use / when not in root directory to check file ", false);
+                string[] options = new string[] { "gotodir", "check file", "goupdir", "quit" };
+                var options_arr = new List<string>();
+                options_arr.AddRange(options);
+                pr.drawmultoption(options_arr);
+                Console.Write(">");
+                var inputfileman = Console.ReadLine();
+                switch (inputfileman)
+                {
+                    default:
+                        pr.drawtext("no option");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case "quit":
+                        kernel.entry1();
+                        break;
+                    case "check file":
+                        Console.Write(">");
+                        var inputchefile = Console.ReadLine();
+                        Console.Clear();
+                        api.checkfile(inputchefile,filedir);
+                        pr.drawtext(Environment.NewLine);
+                        pr.drawtext("press any key to return");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case "gotodir":
+                        Console.Write(">");
+                        var inputgodir = Console.ReadLine();
+                        api.gotodir(inputgodir);
+                        break;
+                    case "goupdir":
+                        api.goupdir();
+                        break;
+                }
+            }
+        }
     }
 }
