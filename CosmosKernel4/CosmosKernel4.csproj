@@ -33,6 +33,7 @@
 		<QemuUseCustomParameters>True</QemuUseCustomParameters>
 		<Timeout>0</Timeout>
 		<QemuHWAccelWHPX>False</QemuHWAccelWHPX>
+		<BinFormat>Bin</BinFormat>
 	</PropertyGroup>
 
 	<ItemGroup>

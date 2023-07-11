@@ -118,6 +118,7 @@ namespace CosmosKernel4
     }
     public class loginfunc
     {
+        //bug not inputting user cause it to crash fixed in testing ground but not here somehow
         proccess pr = new proccess();
         misc_func misc_Func = new misc_func();
         public void login_func()
@@ -149,7 +150,7 @@ namespace CosmosKernel4
             }
             catch (Exception e)
             {
-                pr.criterror();
+                login_func();
             }
             Console.Write("password: ");
             string inputpass = Console.ReadLine();
