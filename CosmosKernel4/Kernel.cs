@@ -135,11 +135,10 @@ namespace CosmosKernel4
                 pr.drawoption($"{userlist[i]}");
             }
             Console.WriteLine(Environment.NewLine);
-            pr.drawtext("OTHER OPTIONS");
-            pr.drawline(15);
             Console.WriteLine(Environment.NewLine);
-            pr.drawoption("SHUTDOWN");
-            pr.drawline(15);
+            pr.drawtextnew(null, false, true);
+            Console.WriteLine(Environment.NewLine);
+            pr.drawtextnew(pr.optionint("SHUTDOWN"), false, true);
             Console.WriteLine(Environment.NewLine);
             Console.Write(">: ");
             string inputuser = Console.ReadLine();

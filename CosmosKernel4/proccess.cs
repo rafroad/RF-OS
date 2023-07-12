@@ -9,6 +9,7 @@ using Cosmos.System.FileSystem;
 using sys = Cosmos.System;
 using vfs = Cosmos.System.FileSystem;
 using Microsoft.VisualBasic;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CosmosKernel4
 {
@@ -40,12 +41,15 @@ namespace CosmosKernel4
         }
         public void drawtitle(string titletext, string descrtext, bool ismaintitle)
         {
+            titletext = "";
+            descrtext = "";
+
             if (ismaintitle == true)
             {
                 titletext = "RF OS V 1.1 TERMLINK";
             }
             Console.WriteLine(titletext);
-            if (descrtext != null)
+            if (descrtext != "" || descrtext !=null)
             {
                 Console.WriteLine(descrtext);
             }
@@ -105,10 +109,10 @@ namespace CosmosKernel4
             //this causes the entire os to freeze for some reason i'll figure it out tmrw
             //debug
             //Console.Clear();
-            //pr.drawtitle(null, "debug mode", true);
-            //Console.WriteLine("press any key to return login screen");
-            //Console.ReadKey();
-            //loginfunc.login_func();
+            pr.drawtitle(null, "debug mode", true);
+            Console.WriteLine("press any key to return login screen");
+            Console.ReadKey();
+            loginfunc.login_func();
             //debugmode();
         }
         public void drawline(int am)
@@ -117,6 +121,30 @@ namespace CosmosKernel4
             {
                 Console.Write("-");
             }
+        }
+        public void drawtextnew(string txt, bool write, bool drawlines)
+        {
+            if (txt == null)
+            {
+                txt = @"no null is allowed use """" to represent null ";
+            }
+            if (write == true)
+            {
+                Console.Write(txt);
+            }
+            else if (write == false)
+            {
+                Console.WriteLine(txt);
+            }
+            if (drawlines == true)
+            {
+                drawline(txt.Length);
+            }
+        }
+        public string optionint(string txt)
+        {
+            string drawedtext = $"[{txt}]";
+            return drawedtext;
         }
     }
 }
