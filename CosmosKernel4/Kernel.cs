@@ -46,13 +46,14 @@ namespace CosmosKernel4
             loginfunc loginfunc = new loginfunc();
             proccess pr = new proccess();
             app app = new app();
+            misc_func misc_Func = new misc_func();
             Console.Clear();
             while (true)
             {
                 var A = "user";
                 pr.drawtitle(null, $"WELCOME {A}",true);
                 var options_array = new List<string>();
-                string[] options= new string[] { "file manager","text editor", "copyright notice", "calculator" , "RF INDUSTRIES STOCK FELL", "logout", "reboot", "shutdown",};
+                string[] options= new string[] { "file manager","text editor", "copyright notice", "calculator" , "RF INDUSTRIES STOCK FELL", "logout", "reboot", "shutdown", "gui"};
                 options_array.AddRange(options);
                 pr.drawmultoption(options_array);
                 Console.Write(">");
@@ -98,6 +99,9 @@ namespace CosmosKernel4
                     case "file manager":
                         app.filemanager(root);
                         break;
+                    case "gui":
+                        misc_Func.loadgui();
+                        break;
                 }
             }
         }
@@ -114,6 +118,20 @@ namespace CosmosKernel4
             Cosmos.HAL.Global.TextScreen = textscr;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
+        }
+        public void loadgui()
+        {
+            guiclass gui = new guiclass();
+            proccess pr = new proccess();
+            try
+            {
+                gui.bg(System.Drawing.Color.Blue);
+                gui.taskbar(System.Drawing.Color.DarkGreen);
+            }
+            catch(Exception e)
+            {
+                pr.milderror(e.ToString());
+            }
         }
     }
     public class loginfunc
